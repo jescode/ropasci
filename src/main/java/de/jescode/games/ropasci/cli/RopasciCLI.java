@@ -37,7 +37,7 @@ public class RopasciCLI {
 			LOG.debug("Names successfully set");
 		}
 
-		return gameManager.getPlayeOne().getName() + " and " + gameManager.getPlayerTwo().getName()
+		return gameManager.getPlayerOne().getName() + " and " + gameManager.getPlayerTwo().getName()
 				+ " will play against each other";
 	}
 
@@ -58,7 +58,7 @@ public class RopasciCLI {
 		}
 		
 		return "Strategy for the players successfully set" + System.lineSeparator()
-				+ gameManager.getPlayeOne().getName() + ": " + gameManager.getPlayeOne().getStrategy()
+				+ gameManager.getPlayerOne().getName() + ": " + gameManager.getPlayerOne().getStrategy()
 				+ System.lineSeparator() + gameManager.getPlayerTwo().getName() + ": "
 				+ gameManager.getPlayerTwo().getStrategy();
 	}

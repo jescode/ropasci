@@ -63,7 +63,7 @@ public class RopasciApiController implements RopasciApi {
 
 			PlayerDTO player;
 			if (number.equals(PLAYERONE)) {
-				player = playerMapper.mapPlayer(gameManager.getPlayeOne());
+				player = playerMapper.mapPlayer(gameManager.getPlayerOne());
 			} else if (number.equals(PLAYERTWO)) {
 				player = playerMapper.mapPlayer(gameManager.getPlayerTwo());
 			} else {
@@ -99,7 +99,7 @@ public class RopasciApiController implements RopasciApi {
 	public ResponseEntity<GameDTO> getGame() {
 		String accept = request.getHeader("Accept");
 		if (accept != null && accept.contains("application/json")) {
-			GameDTO game = gameMapper.mapGame(gameManager.getPlayeOne(), gameManager.getPlayerTwo(),
+			GameDTO game = gameMapper.mapGame(gameManager.getPlayerOne(), gameManager.getPlayerTwo(),
 					gameManager.getRounds(), gameManager.getRoundHistory());
 			return new ResponseEntity<GameDTO>(game, HttpStatus.OK);
 		}
@@ -116,7 +116,7 @@ public class RopasciApiController implements RopasciApi {
 			try {
 				Strategy strategyReq = Strategy.getStrategyByName(strategy);
 				if (playernumber.equals(PLAYERONE)) {
-					gameManager.getPlayeOne().setStrategy(strategyReq);
+					gameManager.getPlayerOne().setStrategy(strategyReq);
 					return new ResponseEntity<Void>(HttpStatus.OK);
 				} else if (playernumber.equals(PLAYERTWO)) {
 					gameManager.getPlayerTwo().setStrategy(strategyReq);
@@ -142,7 +142,7 @@ public class RopasciApiController implements RopasciApi {
 		String accept = request.getHeader("Accept");
 		if (accept != null && accept.contains("application/json")) {
 				if (playernumber.equals(PLAYERONE)) {
-					gameManager.getPlayeOne().setName(name);
+					gameManager.getPlayerOne().setName(name);
 					return new ResponseEntity<Void>(HttpStatus.OK);
 				} else if (playernumber.equals(PLAYERTWO)) {
 					gameManager.getPlayerTwo().setName(name);

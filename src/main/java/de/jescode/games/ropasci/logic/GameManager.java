@@ -24,6 +24,8 @@ import de.jescode.games.ropasci.logic.entity.Strategy;
 @Component
 public final class GameManager {
 
+
+
 	private final static Logger LOG = LoggerFactory.getLogger(GameManager.class);
 
 
@@ -170,7 +172,7 @@ public final class GameManager {
 	/**
 	 * @return the player1
 	 */
-	public Player getPlayeOne() {
+	public Player getPlayerOne() {
 		return playerOne;
 	}
 
