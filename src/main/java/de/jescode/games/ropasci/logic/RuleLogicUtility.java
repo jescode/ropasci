@@ -1,8 +1,17 @@
 package de.jescode.games.ropasci.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.jescode.games.ropasci.logic.entity.Strategy;
 
+/**
+ * @author jescode
+ * Utility-Class for rules of the game
+ */
 public final class RuleLogicUtility {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RuleLogicUtility.class);
 	
 	public final static int DRAW = 0;
 	public final static int VICTORY = 1;
@@ -54,6 +63,8 @@ public final class RuleLogicUtility {
 				return DRAW;
 			}
 		}
+		
+		LOG.error("Move could not be evaluted");
 		return 0;	
 	}
 	

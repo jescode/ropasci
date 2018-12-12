@@ -5,7 +5,7 @@ package de.jescode.games.ropasci.logic.entity;
 
 /**
  * @author jescode
- *
+ * Player of a Game
  */
 public class Player {
 

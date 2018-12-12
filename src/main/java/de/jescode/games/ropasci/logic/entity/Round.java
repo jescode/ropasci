@@ -7,7 +7,7 @@ import de.jescode.games.ropasci.logic.RuleLogicUtility;
 
 /**
  * @author jescode
- *
+ * Round of a Game
  */
 public class Round {
 	

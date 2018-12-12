@@ -9,11 +9,19 @@ import de.jescode.games.ropasci.logic.entity.UnknownStrategyException;
 
 import java.util.Locale;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 
+/**
+ * @author jescode
+ * ShellComponent to handle the CLI
+ */
 @ShellComponent
 public class RopasciCLI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RopasciCLI.class);
 
 	@Autowired
 	GameManager gameManager;
@@ -24,6 +32,10 @@ public class RopasciCLI {
 			@ShellOption(defaultValue = "Player2", value = { "-2", "--second" }) String playerTwo) {
 
 		gameManager.setPlayerNames(playerOne, playerTwo);
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Names successfully set");
+		}
 
 		return gameManager.getPlayeOne().getName() + " and " + gameManager.getPlayerTwo().getName()
 				+ " will play against each other";
@@ -40,7 +52,11 @@ public class RopasciCLI {
 		} catch (UnknownStrategyException e) {
 			return e.getMessage();
 		}
-
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Strategy successfully set");
+		}
+		
 		return "Strategy for the players successfully set" + System.lineSeparator()
 				+ gameManager.getPlayeOne().getName() + ": " + gameManager.getPlayeOne().getStrategy()
 				+ System.lineSeparator() + gameManager.getPlayerTwo().getName() + ": "
@@ -56,6 +72,11 @@ public class RopasciCLI {
 	@ShellMethod(value = "Reset the game to default values")
 	public String resetGame() {
 		gameManager.initGameSettings();
+		
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Game was successfully reseted");
+		}
+		
 		return "Game was successfully reseted!";
 	}
 

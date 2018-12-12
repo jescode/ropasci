@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "52b829a3-b972-4fd6-ab4e-ee0f13624c80",
+		"name": "RoPaSci API",
+		"description": "RoPaSci API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "player",
+			"item": [
+				{
+					"name": "Set strategy of player 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number/strategy/:strategy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number",
+								"strategy",
+								":strategy"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								},
+								{
+									"key": "strategy",
+									"value": "{{strategy}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set strategy of player 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number/strategy/:strategy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number",
+								"strategy",
+								":strategy"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								},
+								{
+									"key": "strategy",
+									"value": "{{strategy}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sets the name of  player 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number/:name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sets the name of  player 2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number/:name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get player 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								}
+							]
+						},
+						"description": "By passing in the the appropriate number ( 1 or 2), you'll receive the player "
+					},
+					"response": []
+				},
+				{
+					"name": "get player 1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/player/:number",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"player",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": "{{number}}"
+								}
+							]
+						},
+						"description": "By passing in the the appropriate number ( 1 or 2), you'll receive the player "
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for player"
+		},
+		{
+			"name": "game",
+			"item": [
+				{
+					"name": "Start game with 10 rounds",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/game/:rounds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								":rounds"
+							],
+							"variable": [
+								{
+									"key": "rounds",
+									"value": "{{rounds}}"
+								}
+							]
+						},
+						"description": "Start game with n rounds, default is one"
+					},
+					"response": []
+				},
+				{
+					"name": "get the actual state of game",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/game",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game"
+							]
+						},
+						"description": "You'll get the actual state of the fame"
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for game"
+		},
+		{
+			"name": "round",
+			"item": [
+				{
+					"name": "get round with requested index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/round/:index",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"round",
+								":index"
+							],
+							"variable": [
+								{
+									"key": "index",
+									"value": "{{index}}"
+								}
+							]
+						},
+						"description": "By passing in the the appropriate index, you'll receive the round "
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for round"
+		}
+	]
+}

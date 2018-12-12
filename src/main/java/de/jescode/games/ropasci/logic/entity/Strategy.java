@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  * @author jescode
- *
+ * Enum for all available strategies
  */
 public enum Strategy {
 	

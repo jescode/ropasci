@@ -19,7 +19,7 @@ import de.jescode.games.ropasci.logic.entity.Strategy;
 
 /**
  * @author jescode
- *
+ * Central component to process the game logic 
  */
 @Component
 public final class GameManager {
@@ -36,6 +36,9 @@ public final class GameManager {
 	@PostConstruct
     private void init() {
         initGameSettings();
+        if (LOG.isDebugEnabled()) {
+			LOG.debug("Game settings initialized");
+		}
     }
 
 	/**
@@ -68,9 +71,12 @@ public final class GameManager {
 				if (LOG.isDebugEnabled()) {
 					LOG.debug(e.getMessage());
 				}
-				LOG.info(e.getMessage());
 			}
 			
+		}
+		
+        if (LOG.isDebugEnabled()) {
+			LOG.debug("Game evaluated");
 		}
 	}
 
@@ -157,7 +163,7 @@ public final class GameManager {
 		this.roundHistory = new ArrayList<Round>();
 
 		if (LOG.isDebugEnabled()) {
-			LOG.debug("Game is initialized");
+			LOG.debug("Game is reseted");
 		}
 	}
 
@@ -201,6 +207,13 @@ public final class GameManager {
 	 */
 	public void setRounds(final int rounds) {
 		this.rounds = rounds;
+	}
+
+	/**
+	 * @return the roundHistory
+	 */
+	public List<Round> getRoundHistory() {
+		return roundHistory;
 	}
 
 }
