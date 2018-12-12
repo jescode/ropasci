@@ -98,6 +98,13 @@ SYNOPSYS
 
 ## Authors
 
-* **Jesko Steinberg** 
+* **Jesko Steinberg**
+
+## Tests
+Postman Collection Json 
+
+## RoPaSci API Swagger Documentation
+http://localhost:8080/swagger-ui.html#/
+http://localhost:8080/api-docs (JSON Format)
 
 
