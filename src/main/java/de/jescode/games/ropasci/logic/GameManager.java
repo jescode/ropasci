@@ -116,7 +116,8 @@ public final class GameManager {
 	 * Evaluates the game and does a print of the game
 	 * @return String - The game print
 	 */
-	public String startGame() throws GameProcessException {	
+	public String startGame() throws GameProcessException {
+		resetRoundHistory();
 		evalGame();
 		return printGame();
 	}
@@ -217,6 +218,10 @@ public final class GameManager {
 	 */
 	public List<Round> getRoundHistory() {
 		return roundHistory;
+	}
+	
+	private void resetRoundHistory() {
+		this.roundHistory.clear();
 	}
 
 }
