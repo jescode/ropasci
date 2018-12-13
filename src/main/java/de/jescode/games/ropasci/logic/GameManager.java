@@ -46,7 +46,7 @@ public final class GameManager {
 	/**
 	 * Evaluates the game with the current game settings
 	 */
-	public void evalGame() {
+	public void evalGame() throws GameProcessException {
 		
 		//loop over the round history
 		for (int move = 1; move <= this.rounds; move++) {
@@ -73,6 +73,7 @@ public final class GameManager {
 				if (LOG.isDebugEnabled()) {
 					LOG.debug(e.getMessage());
 				}
+				throw new GameProcessException();
 			}
 			
 		}
@@ -115,7 +116,7 @@ public final class GameManager {
 	 * Evaluates the game and does a print of the game
 	 * @return String - The game print
 	 */
-	public String startGame() {	
+	public String startGame() throws GameProcessException {	
 		evalGame();
 		return printGame();
 	}

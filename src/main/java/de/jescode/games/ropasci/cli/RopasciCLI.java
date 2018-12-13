@@ -4,6 +4,7 @@ import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 
 import de.jescode.games.ropasci.logic.GameManager;
+import de.jescode.games.ropasci.logic.GameProcessException;
 import de.jescode.games.ropasci.logic.entity.Strategy;
 import de.jescode.games.ropasci.logic.entity.UnknownStrategyException;
 
@@ -41,7 +42,7 @@ public class RopasciCLI {
 				+ " will play against each other";
 	}
 
-	@ShellMethod(value = "Set name of the players - default value is random")
+	@ShellMethod(value = "Set strategy of the players - default value is random")
 	public String setStrategy(@ShellOption(defaultValue = "random", value = { "-1",
 			"--first" }, help = "\"-1\", \"--first\" for the first player -  \"-2\", \"--second\"  for the second player") String strategy1,
 			@ShellOption(defaultValue = "random", value = { "-2", "--second" }) String strategy2) {
@@ -66,7 +67,12 @@ public class RopasciCLI {
 	@ShellMethod(value = "Start the game with n rounds - default value is one")
 	public String startGame(@ShellOption(defaultValue = "1") int rounds) {
 		gameManager.setRounds(rounds);
-		return gameManager.startGame();
+		try {
+			return gameManager.startGame();
+		} catch (GameProcessException e) {
+			return e.getMessage();
+		}
+	
 	}
 
 	@ShellMethod(value = "Reset the game to default values")

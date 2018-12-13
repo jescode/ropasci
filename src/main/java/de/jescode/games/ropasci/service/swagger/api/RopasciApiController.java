@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import de.jescode.games.ropasci.logic.GameManager;
+import de.jescode.games.ropasci.logic.GameProcessException;
 import de.jescode.games.ropasci.logic.entity.Strategy;
 import de.jescode.games.ropasci.logic.entity.UnknownStrategyException;
 import de.jescode.games.ropasci.mapper.GameMapper;
@@ -168,6 +169,8 @@ public class RopasciApiController implements RopasciApi {
 			} catch (NumberFormatException e) {
 				LOG.error(e.getMessage());
 				return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+			} catch (GameProcessException gameEx) {
+				return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			
 		}
