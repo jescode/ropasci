@@ -6,12 +6,8 @@ package de.jescode.games.ropasci.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-
 import de.jescode.games.ropasci.logic.entity.Player;
 import de.jescode.games.ropasci.logic.entity.Round;
 import de.jescode.games.ropasci.logic.entity.Strategy;
@@ -19,29 +15,59 @@ import de.jescode.games.ropasci.logic.entity.Strategy;
 
 /**
  * @author jescode
- * Central component to process the game logic 
+ * Central singleton component to process the game logic 
  */
-@Component
 public final class GameManager {
 
-
-
+		
+	/**
+	 * The singleton instance
+	 */
+	private static GameManager INSTANCE;
+	
 	private final static Logger LOG = LoggerFactory.getLogger(GameManager.class);
 
+	
 
+	/**
+	 * First player of the game
+	 */
 	private Player playerOne;
+	
+	/**
+	 * Second player of the game
+	 */
 	private Player playerTwo;
+	
+	/**
+	 * Amount of play rounds
+	 */
 	private int rounds;
+	
+	/**
+	 * The list of the played rounds
+	 */
 	private List<Round> roundHistory;
 	
-	
-	@PostConstruct
-    private void init() {
+	private GameManager() {
         initGameSettings();
         if (LOG.isDebugEnabled()) {
 			LOG.debug("Game settings initialized");
 		}
-    }
+	}
+	
+	/**
+	 * Returns the GameManager instance
+	 * @return GameManager Singleton instance
+	 */
+	public synchronized static GameManager getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new GameManager();
+		}
+		return INSTANCE;
+	}
+	
+	
 
 	/**
 	 * Evaluates the game with the current game settings

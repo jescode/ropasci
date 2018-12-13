@@ -39,7 +39,6 @@ public class RopasciApiController implements RopasciApi {
 
 	private final HttpServletRequest request;
 
-	@Autowired
 	GameManager gameManager;
 
 	@Autowired
@@ -54,6 +53,7 @@ public class RopasciApiController implements RopasciApi {
 	@Autowired
 	public RopasciApiController(HttpServletRequest request) {
 		this.request = request;
+		this.gameManager = GameManager.getInstance();
 	}
 
 	@Override

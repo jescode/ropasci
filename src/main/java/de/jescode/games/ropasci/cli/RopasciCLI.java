@@ -24,8 +24,11 @@ public class RopasciCLI {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(RopasciCLI.class);
 
-	@Autowired
 	GameManager gameManager;
+	
+	public RopasciCLI() {
+		this.gameManager = GameManager.getInstance();
+	}
 
 	@ShellMethod(value = "Set name of the players")
 	public String setPlayernames(@ShellOption(defaultValue = "Player1", value = { "-1",
